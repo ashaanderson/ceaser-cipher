@@ -1,0 +1,39 @@
+
+def ceasar_decrypt():
+  letter_list ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  message = input("Enter your message: ")
+  key = int(input("Enter your key: "))
+
+  n = len(message)
+
+  userinfo = ""
+
+  for i in range(n):
+    character = message[i]
+    location = letter_list.find(character)
+    new_location = (location - key) % 26
+    userinfo += letter_list[new_location]
+  print(userinfo.upper())
+  
+def ceasar_encrypt():
+  letter_list ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  message = input("Enter your message: ")
+  key = int(input("Enter your key: "))
+
+  n = len(message)
+
+  userinfo = ""
+
+  for i in range(n):
+    character = message[i]
+    location = letter_list.find(character)
+    new_location = (location + key) % 26
+    userinfo += letter_list[new_location]
+  print(userinfo.upper())
+
+def encodeDecode():
+  quest = input("Would you like to Encrypt first or Decrypt? ")
+  if quest == "encrypt" or "Encrypt":
+    ceasar_encrypt()
+  elif quest == "decrypt" or "Decrypt": 
+    ceasar_decrypt()
